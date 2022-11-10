@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->to('login');
 });
 
 Route::get('/dashboard', [NotesController::class, 'index']

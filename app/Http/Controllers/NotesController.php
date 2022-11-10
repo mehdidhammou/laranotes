@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 class NotesController extends Controller
 {
     /**
@@ -13,9 +15,8 @@ class NotesController extends Controller
      */
     public function index()
     {
-        $notes = auth()->user()->notes()->pluck('user_id');
-        dd($notes);
-        // return view('dashboard', compact('notes'));
+        $notes = Auth::user()->notes;
+        return view('dashboard', compact('notes'));
     }
 
     /**
